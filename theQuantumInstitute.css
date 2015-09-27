@@ -1,11 +1,15 @@
 /* CSS declarations go here */
 
+.buttonContainer {
+  height: 100%;
+}
 
 .contact {
   display: inline-block;
   padding-bottom: 10px;
   background-color: green;
   height: 100%;
+  text-align: center;
 }
 
 .navContainer {
@@ -13,6 +17,7 @@
 }
 
 .seeAll {
+  text-align: center;
   display: inline-block;
   background-color: green;
   padding-bottom: 10px;

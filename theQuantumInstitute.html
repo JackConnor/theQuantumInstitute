@@ -1,11 +1,8 @@
 <head>
   <title>Quantum Institute</title>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" charset="utf-8"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  {{>navbar}}
   {{>bodyContainer}}
 </body>
 
@@ -23,7 +20,7 @@
       <div class="buttonContainer col-sm-6 col-sm-offset-3 col-xs-12">
         <div class="row">
           <div class="seeAll col-sm-6 col-xs-12">
-            <h3>See All Episodes</h3>
+            <h3>Episodes</h3>
           </div>
           <div class="contact col-sm-6 col-xs-12">
             <h3>Contact QI</h3>
@@ -38,8 +35,12 @@
 
 <template name="bodyContainer">
   <h2>this should be the body</h2>
-  {{>listview}}
-  {{>contact}}
+  {{>navbar}}
+  {{#if listing}}
+    {{>listview}}
+  {{else}}
+    {{>contact}}
+  {{/if}}
 </template>
 
 <template name="listview">
