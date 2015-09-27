@@ -3,8 +3,37 @@
 
 .contact {
   display: inline-block;
+  padding-bottom: 10px;
+  background-color: green;
+  height: 100%;
+}
+
+.navContainer {
+  outline: 2px solid black;
 }
 
 .seeAll {
   display: inline-block;
+  background-color: green;
+  padding-bottom: 10px;
+  height: 100%;
+}
+
+.titleBox {
+  outline: 2px solid blue;
+  margin-bottom: 20px;
+}
+
+
+/*//begin elements*/
+
+#siteTag {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+#siteTitle {
+  font-size: 45px;
+  font-weight: bold;
 }
