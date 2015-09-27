@@ -8,7 +8,7 @@ if (Meteor.isClient) {
   });
 
   Template.navbar.events({
-
+  
   });
 
 //begin listview helpers/events
