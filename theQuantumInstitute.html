@@ -1,5 +1,7 @@
 <head>
-  <title>theQuantumInstitute</title>
+  <title>Quantum Institute</title>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" charset="utf-8"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -7,9 +9,30 @@
   {{>bodyContainer}}
 </body>
 
+<!-- begin template -->
+<!-- begin template -->
 <template name="navbar">
-  <div class="navContainer">
-    <h1>The Quantum Institue</h1>
+  <div class="navContainer container-fluid">
+    <div class="row">
+      <div class="titleBox  col-sm-8 col-sm-offset-1 col-xs-12">
+        <h1 id='siteTitle'>The Quantum Institue</h1>
+        <p id='siteTag'>The big bangingest podcast in town</p>
+      </div>
+    </div>
+    <div class="row toggleContiner">
+      <div class="buttonContainer col-sm-6 col-sm-offset-3 col-xs-12">
+        <div class="row">
+          <div class="seeAll col-sm-6 col-xs-12">
+            <h3>See All Episodes</h3>
+          </div>
+          <div class="contact col-sm-6 col-xs-12">
+            <h3>Contact the Quantum Institute</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
