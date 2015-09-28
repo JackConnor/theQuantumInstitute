@@ -6,8 +6,17 @@
   {{>bodyContainer}}
 </body>
 
-<!-- begin template -->
-<!-- begin template -->
+<!-- begin templates -->
+<!-- begin templates -->
+<template name="bodyContainer">
+  {{>navbar}}
+  {{#if listing}}
+    {{>listview}}
+  {{else}}
+    {{>contact}}
+  {{/if}}
+</template>
+
 <template name="navbar">
   <div class="navContainer container-fluid">
     <div class="row">
@@ -28,24 +37,42 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
-<template name="bodyContainer">
-  <h2>this should be the body</h2>
-  {{>navbar}}
-  {{#if listing}}
-    {{>listview}}
-  {{else}}
-    {{>contact}}
-  {{/if}}
+<template name="listview">
+  <h1>Episode Archive</h1>
+  <div class="itemContainer">
+    {{#each listItems}}
+      <div class="listItem container-fluid">
+        <div class="itemInfo row">
+          <div class="col-sm-3 col-xs-12">
+            <h2>Episode: {{this}}</h2>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <h1 class="epTitle">The Black Hole Episode</h1>
+          </div>
+        </div>
+        <div class="clickBox row" id={{this}}>
+          <div id={{this}}{{this}} class="open col-sm-6 col-sm-offset-3 col-xs-12">
+            <h3>Open Player and Listen Now</h3>
+          </div>
+          <div id={{this}}{{this}}{{this}}  class="symbol col-sm-6 col-sm-offset-3 col-xs-12">
+            <h1>&#10093;</h1>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
 </template>
 
-<template name="listview">
-  <h1>This should be the list</h1>
-</template>
+<!-- this is a helper template to lsitview aboce (it's the video-player) -->
+<!-- <template name='player'>
+  <div class="playerContainer">
+    <h1>hi</h1>
+  </div>
+</template> -->
 
 <template name="contact">
   <h3>This is where contact info will go</h3>
