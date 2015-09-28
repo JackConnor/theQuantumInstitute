@@ -24,7 +24,6 @@ if (Meteor.isClient) {
     listing: function(){
       return Session.get('listingOn');
     }
-
   });
 
   Template.bodyContainer.events({
@@ -36,7 +35,7 @@ if (Meteor.isClient) {
   Template.listview.helpers({
 
     listItems: function(){
-      return [
+      var data = [
         {
           'id':1,
           'url':'cDwRY1ny67Q',
@@ -62,6 +61,10 @@ if (Meteor.isClient) {
         'name': 'Interstellar Travel Planning'
       }
     ];
+    for (var i = 0; i < data.length; i++) {
+      Session.setDefault("playerOpen"+data[i].id, false);
+    }
+    return data;
     }
   })
 
@@ -73,7 +76,7 @@ if (Meteor.isClient) {
       var topTarg = evt.currentTarget.parentNode.childNodes[1];
       var target = evt.currentTarget;
       var playerContainer = target.parentNode.childNodes[3];
-      if (!Session.get('playerOpen')) {
+      if (!Session.get('playerOpen'+targEl.id)) {
         $("#"+targEl.id).animate({
           backgroundColor: '#516E65',
           color: 'white'
@@ -94,8 +97,8 @@ if (Meteor.isClient) {
             var remover = targEl.childNodes[1];
             remover.childNodes[1].innerText = "";
          }, 500);
-        Session.set('playerOpen', true)
-      } else if( Session.get('playerOpen')){
+        Session.set('playerOpen'+targEl.id, true)
+      } else if( Session.get('playerOpen'+targEl.id)){
           var topRow = target.parentNode.childNodes[1];
           var bottomRow = target.parentNode.childNodes[5]
           $(topRow).animate({
@@ -117,10 +120,12 @@ if (Meteor.isClient) {
               var drilled = $(adder)[0].childNodes[1];
               drilled.innerText = "Open Player and Listen Now (opened)"
            }, 500)
-          Session.set('playerOpen', false);
+          Session.set('playerOpen'+targEl.id, false);
         }
         ////begin player logic
-        if (Session.get('playerOpen')) {
+        var player;
+        var playerId = 'player'+targEl.id;
+        if (Session.get('playerOpen'+targEl.id)) {
           var vidUrl = targEl.className.split(' ')[2];
           console.log(vidUrl);
           var tag = document.createElement('script');
@@ -128,6 +133,9 @@ if (Meteor.isClient) {
           tag.src = "https://www.youtube.com/iframe_api";
           var firstScriptTag = document.getElementsByTagName('script')[0];
           firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+          $('#player'+targEl.id).animate({
+            height: '400px'
+          });
 
           // 3. This function creates an <iframe> (and YouTube player)
           //    after the API code downloads.
@@ -164,8 +172,19 @@ if (Meteor.isClient) {
           function stopVideo() {
             player.stopVideo();
           }
-  ///end player logic
         }
+        else if(!Session.get('playerOpen'+targEl.id)){
+          function stopVideo() {
+            player.stopVideo();
+          }
+          $(playerContainer).animate({
+            height: '0px'
+          })
+          $('#player'+targEl.id).animate({
+            height: '0px'
+          }, 800);
+        }
+  ///end player logic
 
       },
       'mouseenter .clickBox': function(evt){
