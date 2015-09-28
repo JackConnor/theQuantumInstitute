@@ -10,11 +10,9 @@ if (Meteor.isClient) {
 
   Template.navbar.events({
     'click .seeAll': function(){
-      console.log('testing');
       Session.set('listingOn', true);
     },
     'click .contact': function(){
-      console.log('testing');
       Session.set('listingOn', false)
     }
 
@@ -38,18 +36,18 @@ if (Meteor.isClient) {
   Template.listview.helpers({
 
     listItems: function(){
-      return [1,2,3,4,5,6,7];
+      return [{'id':1, 'url':'cDwRY1ny67Q'}, {'id':2, 'url':'Ylvo33QhBdU'}, {'id':3, 'url':'7GM3QbsJpUM'}, {'id':4, 'url':'K_CVJlvYQs0'},{'id':5, 'url': 'ZwrOe9MRGpg'}];
     }
   })
 
 
   Template.listview.events({
     'click .clickBox':function(evt){
+      //begin popping down div to show player
       var targEl = evt.currentTarget;
       var topTarg = evt.currentTarget.parentNode.childNodes[1];
       var target = evt.currentTarget;
       var playerContainer = target.parentNode.childNodes[3];
-      console.log(target.parentNode.childNodes[3]);
       if (!Session.get('playerOpen')) {
         $("#"+targEl.id).animate({
           backgroundColor: '#516E65',
@@ -93,10 +91,57 @@ if (Meteor.isClient) {
               var adder = targEl.childNodes[1];
               var drilled = $(adder)[0].childNodes[1];
               drilled.innerText = "Open Player and Listen Now (opened)"
-           }, 500);
-
+           }, 500)
           Session.set('playerOpen', false);
         }
+        ////begin player logic
+        if (Session.get('playerOpen')) {
+          var vidUrl = targEl.className.split(' ')[2];
+          console.log(vidUrl);
+          var tag = document.createElement('script');
+
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          // 3. This function creates an <iframe> (and YouTube player)
+          //    after the API code downloads.
+          var player;
+          setTimeout(function onYouTubeIframeAPIReady() {
+            var playerId = 'player'+targEl.id;
+            console.log(playerId);
+            player = new YT.Player(playerId, {
+              height: '400',
+              width: '655',
+              videoId: vidUrl,
+              events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+              }
+            });
+          }, 700)
+          onYouTubeIframeAPIReady();
+          // 4. The API will call this function when the video player is ready.
+          function onPlayerReady(event) {
+            event.target.playVideo();
+          }
+
+          // 5. The API calls this function when the player's state changes.
+          //    The function indicates that when playing a video (state=1),
+          //    the player should play for six seconds and then stop.
+          var done = false;
+          function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+              setTimeout(stopVideo, 6000);
+              done = true;
+            }
+          }
+          function stopVideo() {
+            player.stopVideo();
+          }
+  ///end player logic
+        }
+
       },
       'mouseenter .clickBox': function(evt){
         $("#"+evt.target.id).css('backgroundColor', '#436673');
@@ -108,7 +153,6 @@ if (Meteor.isClient) {
       },
       'mouseleave .clickBox': function(evt){
         $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
-        console.log($("#"+evt.target.id)[0].childNodes[1]);
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
           $(openText).css({
           color: 'black'

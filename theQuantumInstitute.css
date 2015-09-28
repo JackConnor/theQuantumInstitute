@@ -44,10 +44,16 @@
 }
 
 .playerContainer {
-  height: px;
+  height: 0px;
   width: 60%;
   margin-left: 20%;
-  background-color: "#CAEDFA"
+  background-color: #F5DBDB;
+}
+
+.playerInnerContainer {
+  background-color: "red";
+
+
 }
 
 .seeAll {
