@@ -93,11 +93,11 @@ if (Meteor.isClient) {
         console.log(targEl);
         $("#"+targEl.id).animate({
           marginTop: '400px',
-          backgroundColor: '#273F60',
+          backgroundColor: '#516E65',
           color: 'white'
         }, 800);
         $("#"+topTarg.id).animate({
-          backgroundColor: '#273F60',
+          backgroundColor: '#516E65',
           color: 'white'
         }, 800)
 
@@ -107,8 +107,11 @@ if (Meteor.isClient) {
 
          setTimeout(function(){
             var remover = targEl.childNodes[1];
+            console.log(remover.childNodes);
+            console.log(remover.childNodes[0]);
+            console.log(remover.childNodes[1]);
             var $targ = $(remover);
-            remover.innerText = ""
+            remover.childNodes[1].innerText = ""
          }, 500);
         Session.set('playerOpen', true)
       } else if( Session.get('playerOpen')){
@@ -125,8 +128,19 @@ if (Meteor.isClient) {
           $(bottomRow).animate({
             color: 'black',
             backgroundColor: '#7BAFA0',
-            marginTop: '0px'
+            marginTop: '0px',
           }, 800)
+          $("#"+targEl.childNodes[1].id).animate({
+             height: '50px'
+           }, 800)
+           setTimeout(function(){
+              var adder = targEl.childNodes[1];
+              var drilled = $(adder)[0].childNodes[1];
+              console.log(adder.innerHtml);
+              console.log(adder.innerText);
+              drilled.innerText = "Open Player and Listen Now (opened)"
+           }, 500);
+
           Session.set('playerOpen', false);
         }
       }
