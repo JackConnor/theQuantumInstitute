@@ -44,40 +44,6 @@ if (Meteor.isClient) {
 
 
   Template.listview.events({
-    'click .listItem': function(evt){
-      // console.log(evt.currentTarget.childNodes);
-      // var targEl = evt.currentTarget.childNodes[3];
-      // var topTarg = evt.currentTarget.childNodes[1];
-      // if (!Session.get('playerOpen')) {
-      //   console.log('in');
-      //   $("#"+targEl.id).animate({
-      //     marginTop: '400px',
-      //     backgroundColor: '#273F60',
-      //     color: 'white'
-      //   }, 800);
-      //   $("#"+topTarg.id).animate({
-      //     backgroundColor: '#273F60',
-      //     color: 'white'
-      //   }, 800)
-      //
-      //   $("#"+targEl.childNodes[1].id).animate({
-      //      height: '0px'
-      //    }, 800)
-      //
-      //    setTimeout(function(){
-      //       var remover = targEl.childNodes[1];
-      //       var $targ = $(remover);
-      //       remover.innerText = ""
-      //    }, 500);
-      //   Session.set('playerOpen', true)
-      // } else {
-      //   // $('#'+targEl.id).animate({
-      //   //   marginTop: '0px'
-      //   // })
-      //   // $("#"+targEl.id).css('border', 0);
-      //   // Session.set('playerOpen', false)
-      // }
-    },
     'click .clickBox':function(evt){
       console.log(evt.currentTarget);
       console.log($(evt.currentTarget.parentNode.childNodes[1]));
@@ -107,20 +73,12 @@ if (Meteor.isClient) {
 
          setTimeout(function(){
             var remover = targEl.childNodes[1];
-            console.log(remover.childNodes);
-            console.log(remover.childNodes[0]);
-            console.log(remover.childNodes[1]);
-            var $targ = $(remover);
-            remover.childNodes[1].innerText = ""
+            remover.childNodes[1].innerText = "";
          }, 500);
         Session.set('playerOpen', true)
       } else if( Session.get('playerOpen')){
-          console.log(target);
           var topRow = target.parentNode.childNodes[1];
           var bottomRow = target.parentNode.childNodes[3]
-          console.log($(topRow));
-          console.log($(bottomRow));
-          console.log(topRow.style.color);
           $(topRow).animate({
             color: 'black',
             backgroundColor: '#7BAFA0',
@@ -136,14 +94,29 @@ if (Meteor.isClient) {
            setTimeout(function(){
               var adder = targEl.childNodes[1];
               var drilled = $(adder)[0].childNodes[1];
-              console.log(adder.innerHtml);
-              console.log(adder.innerText);
               drilled.innerText = "Open Player and Listen Now (opened)"
            }, 500);
 
           Session.set('playerOpen', false);
         }
-      }
+      },
+      'mouseenter .clickBox': function(evt){
+        $("#"+evt.target.id).css('backgroundColor', '#436673');
+        var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+        console.log(openText);
+        $(openText).css({
+        color: 'white'
+      });
+
+      },
+      'mouseleave .clickBox': function(evt){
+        $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
+        console.log($("#"+evt.target.id)[0].childNodes[1]);
+        var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+          $(openText).css({
+          color: 'black'
+        });
+    }
   })
 
 
