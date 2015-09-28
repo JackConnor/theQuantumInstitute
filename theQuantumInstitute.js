@@ -157,6 +157,10 @@ if (Meteor.isClient) {
           // 4. The API will call this function when the video player is ready.
           function onPlayerReady(event) {
             event.target.playVideo();
+            console.log(event.target);
+            $('.'+vidUrl).on('click', function(){
+              event.target.stopVideo();
+            })
           }
 
           // 5. The API calls this function when the player's state changes.
@@ -164,16 +168,19 @@ if (Meteor.isClient) {
           //    the player should play for six seconds and then stop.
           var done = false;
           function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING && !done) {
-              setTimeout(stopVideo, 6000);
-              done = true;
-            }
+            console.log(event);
+            console.log(event.data);
+            // if (event.data == YT.PlayerState.PLAYING && !done) {
+            //   setTimeout(stopVideo, 6000);
+            //   done = true;
+            // }
           }
-          function stopVideo() {
-            player.stopVideo();
-          }
+          // function stopVideo() {
+          //   player.stopVideo();
+          // }
         }
         else if(!Session.get('playerOpen'+targEl.id)){
+          console.log(player);
           function stopVideo() {
             player.stopVideo();
           }
