@@ -38,50 +38,98 @@ if (Meteor.isClient) {
   Template.listview.helpers({
 
     listItems: function(){
-      return [1,2,3,4,4,5,5,5];
+      return [1,2,3,4,5,6,7];
     }
   })
 
 
   Template.listview.events({
     'click .listItem': function(evt){
-      var targEl = evt.currentTarget.childNodes[3];
+      // console.log(evt.currentTarget.childNodes);
+      // var targEl = evt.currentTarget.childNodes[3];
+      // var topTarg = evt.currentTarget.childNodes[1];
+      // if (!Session.get('playerOpen')) {
+      //   console.log('in');
+      //   $("#"+targEl.id).animate({
+      //     marginTop: '400px',
+      //     backgroundColor: '#273F60',
+      //     color: 'white'
+      //   }, 800);
+      //   $("#"+topTarg.id).animate({
+      //     backgroundColor: '#273F60',
+      //     color: 'white'
+      //   }, 800)
+      //
+      //   $("#"+targEl.childNodes[1].id).animate({
+      //      height: '0px'
+      //    }, 800)
+      //
+      //    setTimeout(function(){
+      //       var remover = targEl.childNodes[1];
+      //       var $targ = $(remover);
+      //       remover.innerText = ""
+      //    }, 500);
+      //   Session.set('playerOpen', true)
+      // } else {
+      //   // $('#'+targEl.id).animate({
+      //   //   marginTop: '0px'
+      //   // })
+      //   // $("#"+targEl.id).css('border', 0);
+      //   // Session.set('playerOpen', false)
+      // }
+    },
+    'click .clickBox':function(evt){
+      console.log(evt.currentTarget);
+      console.log($(evt.currentTarget.parentNode.childNodes[1]));
+      console.log(evt.currentTarget.childNodes);
+      var targEl = evt.currentTarget;
+      console.log(targEl);
+      var topTarg = evt.currentTarget.parentNode.childNodes[1];
+      console.log(topTarg);
+      var target = evt.currentTarget;
+      console.log(evt.currentTarget.style.color);
       if (!Session.get('playerOpen')) {
+        console.log('in');
+        console.log(targEl);
         $("#"+targEl.id).animate({
           marginTop: '400px',
+          backgroundColor: '#273F60',
+          color: 'white'
         }, 800);
-        //remove the open text
-        var remover = targEl.childNodes[1].id;
-        console.log(remover);
-        $('#'+remover).remove();
-        //change direction of arrow
-        var arrowSwitch = targEl.childNodes[3].childNodes[1].innerText;
-        console.log(arrowSwitch);
-        // console.log(arrowSwitch[3].childNodes[1]);
-        // console.log(arrowSwitch[3].childNodes[1].innerText);
+        $("#"+topTarg.id).animate({
+          backgroundColor: '#273F60',
+          color: 'white'
+        }, 800)
 
-        $("#"+targEl.id).css('borderTop', '2px solid gray');
-        $("#"+targEl.id).css('background-color', '#273F60');
-        $("#"+targEl.id).css('color', 'white');
+        $("#"+targEl.childNodes[1].id).animate({
+           height: '0px'
+         }, 800)
+
+         setTimeout(function(){
+            var remover = targEl.childNodes[1];
+            var $targ = $(remover);
+            remover.innerText = ""
+         }, 500);
         Session.set('playerOpen', true)
-      } else {
-        $('#'+targEl.id).animate({
-          marginTop: '0px'
-        })
-        $("#"+targEl.id).css('border', 0);
-        Session.set('playerOpen', false)
+      } else if( Session.get('playerOpen')){
+          console.log(target);
+          var topRow = target.parentNode.childNodes[1];
+          var bottomRow = target.parentNode.childNodes[3]
+          console.log($(topRow));
+          console.log($(bottomRow));
+          console.log(topRow.style.color);
+          $(topRow).animate({
+            color: 'black',
+            backgroundColor: '#7BAFA0',
+          }, 800);
+          $(bottomRow).animate({
+            color: 'black',
+            backgroundColor: '#7BAFA0',
+            marginTop: '0px'
+          }, 800)
+          Session.set('playerOpen', false);
+        }
       }
-    }
-    // ,
-    // 'click .clickBox': function(evt){
-    //   var targEl = evt.currentTarget.id;
-    //   if (Session.get('playerOpen')) {
-    //       console.log('lets close it up');
-    //
-    //   } else {
-    //     console.log('already closed');
-    //   }
-    // }
   })
 
 
