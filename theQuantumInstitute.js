@@ -45,23 +45,19 @@ if (Meteor.isClient) {
 
   Template.listview.events({
     'click .clickBox':function(evt){
-      console.log(evt.currentTarget);
-      console.log($(evt.currentTarget.parentNode.childNodes[1]));
-      console.log(evt.currentTarget.childNodes);
       var targEl = evt.currentTarget;
-      console.log(targEl);
       var topTarg = evt.currentTarget.parentNode.childNodes[1];
-      console.log(topTarg);
       var target = evt.currentTarget;
-      console.log(evt.currentTarget.style.color);
+      var playerContainer = target.parentNode.childNodes[3];
+      console.log(target.parentNode.childNodes[3]);
       if (!Session.get('playerOpen')) {
-        console.log('in');
-        console.log(targEl);
         $("#"+targEl.id).animate({
-          marginTop: '400px',
           backgroundColor: '#516E65',
           color: 'white'
         }, 800);
+        $(playerContainer).animate({
+          height: '400px'
+        }, 800)
         $("#"+topTarg.id).animate({
           backgroundColor: '#516E65',
           color: 'white'
@@ -78,15 +74,17 @@ if (Meteor.isClient) {
         Session.set('playerOpen', true)
       } else if( Session.get('playerOpen')){
           var topRow = target.parentNode.childNodes[1];
-          var bottomRow = target.parentNode.childNodes[3]
+          var bottomRow = target.parentNode.childNodes[5]
           $(topRow).animate({
             color: 'black',
             backgroundColor: '#7BAFA0',
           }, 800);
+          $(playerContainer).animate({
+            height: '0px'
+          }, 800)
           $(bottomRow).animate({
             color: 'black',
-            backgroundColor: '#7BAFA0',
-            marginTop: '0px',
+            backgroundColor: '#7BAFA0'
           }, 800)
           $("#"+targEl.childNodes[1].id).animate({
              height: '50px'
@@ -103,7 +101,6 @@ if (Meteor.isClient) {
       'mouseenter .clickBox': function(evt){
         $("#"+evt.target.id).css('backgroundColor', '#436673');
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
-        console.log(openText);
         $(openText).css({
         color: 'white'
       });

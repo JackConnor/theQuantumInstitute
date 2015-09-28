@@ -40,7 +40,14 @@
 
 .open h3 {
   color: gray;
-  font-weight: normal; 
+  font-weight: normal;
+}
+
+.playerContainer {
+  height: px;
+  width: 60%;
+  margin-left: 20%;
+  background-color: "#CAEDFA"
 }
 
 .seeAll {
