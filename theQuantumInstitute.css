@@ -6,7 +6,7 @@
 
 .clickBox {
   text-align: center;
-  background-color: #CADDF7;
+  background-color: #7BAFA0;
 }
 
 .contact {
@@ -22,14 +22,13 @@
 }
 
 .itemInfo{
-  background-color: #CADDF7;
+  background-color: #7BAFA0;
 }
 
 .listItem {
   height: 100%;
-  width: 90%;
+  width: 80%;
   margin-top: 20px;
-  outline: 2px solid gray;
 }
 
 .navContainer {
