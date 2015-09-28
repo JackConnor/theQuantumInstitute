@@ -45,9 +45,9 @@
   <div class="itemContainer">
     {{#each listItems}}
       <div class="listItem container-fluid">
-        <div class="itemInfo row" id={{this}}{{this}}{{this}}{{this}}>
+        <div class="itemInfo row" id={{this.id}}{{this.id}}{{this.id}}{{this.id}}>
           <div class="col-sm-3 col-xs-12">
-            <h2>Episode: {{this}}</h2>
+            <h2>Episode: {{this.id}}</h2>
           </div>
           <div class="col-sm-6 col-xs-12">
             <h1 class="epTitle">The Black Hole Episode</h1>
@@ -55,14 +55,14 @@
         </div>
         <div class="playerContainer">
           <div class="playerInnerHolder">
-            <div id='player'></div>
+            <div id='player{{this.id}}' class=''></div>
           </div>
         </div>
-        <div class="clickBox row" id={{this}}>
-          <div id={{this}}{{this}} class="open col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="clickBox row {{this.url}}" id={{this.id}}>
+          <div id={{this.id}}{{this.id}} class="open col-sm-8 col-sm-offset-2 col-xs-12">
             <h3>Open Player and Listen Now</h3>
           </div>
-          <div id={{this}}{{this}}{{this}}  class="symbol col-sm-6 col-sm-offset-3 col-xs-12">
+          <div id={{this.id}}{{this.id}}{{this.id}}  class="symbol col-sm-6 col-sm-offset-3 col-xs-12">
             <h1 class='arrow'>&#10093;</h1>
           </div>
         </div>
