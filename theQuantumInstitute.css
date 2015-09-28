@@ -4,12 +4,32 @@
   height: 100%;
 }
 
+.clickBox {
+  text-align: center;
+  background-color: #CADDF7;
+}
+
 .contact {
   display: inline-block;
   padding-bottom: 10px;
   background-color: green;
   height: 100%;
   text-align: center;
+}
+
+.epTitle{
+  text-align: center;
+}
+
+.itemInfo{
+  background-color: #CADDF7;
+}
+
+.listItem {
+  height: 100%;
+  width: 90%;
+  margin-top: 20px;
+  outline: 2px solid gray;
 }
 
 .navContainer {
@@ -22,6 +42,22 @@
   background-color: green;
   padding-bottom: 10px;
   height: 100%;
+}
+
+.symbol{
+  width: 100%;
+  text-align: center;
+  margin-left: 50%;
+  margin-top: -100px;
+  margin-bottom: -30px;
+}
+.symbol h1{
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  width: 0px;
+  text-align: center;
+  font-size: 150px;
 }
 
 .titleBox {
