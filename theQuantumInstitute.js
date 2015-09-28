@@ -36,7 +36,32 @@ if (Meteor.isClient) {
   Template.listview.helpers({
 
     listItems: function(){
-      return [{'id':1, 'url':'cDwRY1ny67Q'}, {'id':2, 'url':'Ylvo33QhBdU'}, {'id':3, 'url':'7GM3QbsJpUM'}, {'id':4, 'url':'K_CVJlvYQs0'},{'id':5, 'url': 'ZwrOe9MRGpg'}];
+      return [
+        {
+          'id':1,
+          'url':'cDwRY1ny67Q',
+          'name': 'Mining Asteroids for fun and profit'
+        },
+        {
+          'id':2,
+          'url':'Ylvo33QhBdU',
+          'name':
+          'The Big Bang Episode'
+        },
+        {'id':3,
+          'url':'7GM3QbsJpUM',
+          'name': 'Whats Up With All the Robots'
+        },
+        {
+          'id': 4,
+          'url':"K_CVJlvYQs0",
+          'name': 'Particle Accelerators'
+        },
+        {'id':5,
+        'url': 'ZwrOe9MRGpg',
+        'name': 'Interstellar Travel Planning'
+      }
+    ];
     }
   })
 
