@@ -110,6 +110,7 @@ if (Meteor.isClient) {
             height: '0px'
           }, 800)
           $(bottomRow).animate({
+            color: 'black',
             backgroundColor: '#7BAFA0'
           }, 800)
           $("#"+targEl.childNodes[1].id).animate({
