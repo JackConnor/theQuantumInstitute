@@ -105,6 +105,11 @@ body{
   border-right: 2px solid gray;
 }
 
+.spaceHolder{
+  height: 220px;
+  display: block;
+}
+
 .symbol{
   text-align: center;
   margin-left: 50%;
