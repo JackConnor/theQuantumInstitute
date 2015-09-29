@@ -23,6 +23,24 @@ body{
   opacity: 0.6;
 }
 
+.contactContainer{
+
+}
+
+.contactLinks {
+  padding-bottom: 20px;
+}
+
+.contactLinks h4{
+  display: inline-block;
+  text-align: center;
+}
+
+.email {
+  background-color: #C2A09C;
+  margin-top: 40px;
+}
+
 .epTitle{
   text-align: center;
 }
@@ -30,7 +48,11 @@ body{
 .itemInfo{
   background-color: #44E3E0;
   border-radius: 10px 10px 0 0;
+}
 
+.links{
+  background-color: #C2A09C;
+  margin-top: 40px;
 }
 
 .listItem {
@@ -94,6 +116,18 @@ body{
   margin-left: 10%;
   font-size: 45px;
   font-style: italic;
+}
+
+#contactDirectly {
+  text-align: center;
+}
+
+#contactDescription {
+  text-align: center;
+}
+
+#linksTitle{
+  text-align: center;
 }
 
 #siteTag {
