@@ -17,10 +17,10 @@ body{
 .contact {
   display: inline-block;
   padding-bottom: 10px;
-  background-color: #C0B6E1;
+  background-color: #DA6F7F;
   height: 100%;
   text-align: center;
-  opacity: 0.6;
+  opacity: 0.75;
 }
 
 .contact:hover {
@@ -66,11 +66,11 @@ body{
 .seeAll {
   text-align: center;
   display: inline-block;
-  background-color: #C0B6E1;
+  background-color: #DA6F7F;
   padding-bottom: 10px;
   height: 100%;
-  opacity: .6;
-  border-right: 1px solid gray;
+  opacity: .75;
+  border-right: 2px solid gray;
 }
 
 .seeAll:hover {
