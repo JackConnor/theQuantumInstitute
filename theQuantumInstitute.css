@@ -66,6 +66,7 @@ body{
 .linkBox {
   height: 200px;
   display: inline-block;
+  margin-top: 30px;
 }
 
 .listItem {
@@ -126,10 +127,12 @@ body{
 /*//begin ids*/
 #angel {
   background-color: #221139;
+  border-radius: 10px;
 }
 
 #angel img{
   width: 100%;
+  border-radius: 10px;
 }
 
 #angelImage:hover{
@@ -152,10 +155,12 @@ body{
 
 #linkedin{
   background-color: #221139;
+  border-radius: 10px;
 }
 
 #linkedin img{
   width: 100%;
+  border-radius: 10px;
 }
 
 #linkedinImage:hover{
@@ -168,10 +173,12 @@ body{
 
 #portfolio{
   background-color: #221139;
+  border-radius: 10px
 }
 
 #portfolio img{
   width: 100%;
+  border-radius: 10px
 }
 
 #portfolioImage:hover{
