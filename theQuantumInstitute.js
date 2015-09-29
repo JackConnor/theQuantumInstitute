@@ -199,16 +199,28 @@ if (Meteor.isClient) {
         $("#"+evt.target.id).css('backgroundColor', '#436673');
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
-        color: 'white'
-      });
+          color: 'white'
+        });
+        $('.symbol').css('backgroundColor', 'transparent')
 
       },
       'mouseleave .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
-        var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
-          $(openText).css({
-          color: 'black'
-        });
+        console.log(evt.target.id);
+        console.log(evt.target.id);
+        $('.symbol').css('backgroundColor', 'transparent')
+        if(Session.get('playerOpen'+evt.target.id)){
+          $("#"+evt.target.id).css('backgroundColor', '#516E65');
+          var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+            $(openText).css({
+            color: 'white'
+          });
+        } else {
+          $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
+          var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+            $(openText).css({
+            color: 'black'
+          });
+        }
     }
   })
 
