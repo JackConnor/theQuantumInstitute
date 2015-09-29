@@ -39,7 +39,7 @@
 }
 
 .open h3 {
-  color: gray;
+  color: black;
   font-weight: normal;
 }
 
@@ -69,7 +69,6 @@
   margin-left: 50%;
   margin-top: -100px;
   margin-bottom: -30px;
-  background-color: none;
 }
 .symbol h1{
   -ms-transform: rotate(90deg); /* IE 9 */
@@ -92,9 +91,12 @@
   font-size: 22px;
   font-weight: bold;
   margin-top: -10px;
+  margin-left: 35px;
 }
 
 #siteTitle {
-  font-size: 45px;
+  font-size: 60px;
   font-weight: bold;
+  font-style: '#7BAFA0';
+  margin-left: 20px;
 }

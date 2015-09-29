@@ -100,7 +100,8 @@ if (Meteor.isClient) {
         Session.set('playerOpen'+targEl.id, true)
       } else if( Session.get('playerOpen'+targEl.id)){
           var topRow = target.parentNode.childNodes[1];
-          var bottomRow = target.parentNode.childNodes[5]
+          var bottomRow = target.parentNode.childNodes[5];
+          var textChange = target.parentNode.childNodes[5].childNodes[1];
           $(topRow).animate({
             color: 'black',
             backgroundColor: '#7BAFA0',
@@ -109,7 +110,6 @@ if (Meteor.isClient) {
             height: '0px'
           }, 800)
           $(bottomRow).animate({
-            color: 'black',
             backgroundColor: '#7BAFA0'
           }, 800)
           $("#"+targEl.childNodes[1].id).animate({
@@ -197,6 +197,8 @@ if (Meteor.isClient) {
       },
       'mouseenter .clickBox': function(evt){
         $("#"+evt.target.id).css('backgroundColor', '#436673');
+        console.log(evt.target.childNodes[1]);
+        $(evt.target.childNodes[1]).css('backgroundColor', '#436673');
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
           color: 'white'
@@ -210,17 +212,40 @@ if (Meteor.isClient) {
         $('.symbol').css('backgroundColor', 'transparent')
         if(Session.get('playerOpen'+evt.target.id)){
           $("#"+evt.target.id).css('backgroundColor', '#516E65');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#516E65');
           var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
             $(openText).css({
             color: 'white'
           });
         } else {
           $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#7BAFA0');
           var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
             $(openText).css({
             color: 'black'
           });
         }
+    },
+    'mouseenter .listItem': function(evt){
+      var list = evt.target.childNodes;
+      var top = $(list[1]);
+      var bottom = $(list[5]);
+      bottom.animate({
+        paddingTop: '10px'
+      }, 100);
+      top.animate({
+      }, 100)
+    },
+    'mouseleave .listItem': function(evt){
+      var list = evt.target.childNodes;
+      var top = $(list[1]);
+      var bottom = $(list[5]);
+      bottom.animate({
+        paddingTop: '0px'
+      }, 100)
+      top.animate({
+
+      }, 100)
     }
   })
 
