@@ -2,6 +2,7 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('listingOn', true);
   Session.setDefault('playerOpen', false);
+  Session.setDefault('listOn', true);
 
 //begin navbar helpers/events
   Template.navbar.helpers({
@@ -11,9 +12,47 @@ if (Meteor.isClient) {
   Template.navbar.events({
     'click .seeAll': function(){
       Session.set('listingOn', true);
+      $('.seeAll').css({
+        opacity: 1
+      })
+      $('.contact').css({
+        opacity: .68
+      })
     },
     'click .contact': function(){
-      Session.set('listingOn', false)
+      Session.set('listingOn', false);
+      $('.seeAll').css({
+        opacity: .68
+      })
+      $('.contact').css({
+        opacity: 1
+      })
+    },
+    'mouseenter .seeAll': function(evt){
+      $(evt.target).css({
+        opacity: 1
+      })
+    },
+    'mouseleave .seeAll': function(evt){
+      if (Session.get('listingOn')) {
+        console.log('nailed it if the listview is open');
+        $('.seeAll').css('opacity', 1)
+      } else{
+        console.log('contact?');
+        $('.seeAll').css('opacity', 0.6)
+      }
+    },
+    'mouseleave .contact': function(evt){
+      if (!Session.get('listingOn')) {
+        $('.contact').css('opacity', 1)
+      } else{
+        $('.contact').css('opacity', .6)
+      }
+    },
+    'mouseenter .contact': function(evt){
+      $(evt.target).css({
+        opacity: 1
+      })
     }
 
   });
@@ -76,21 +115,31 @@ if (Meteor.isClient) {
       var topTarg = evt.currentTarget.parentNode.childNodes[1];
       var target = evt.currentTarget;
       var playerContainer = target.parentNode.childNodes[3];
+      var nameTitle = target.parentNode.childNodes[5].childNodes[1];
+      var arrow = target.parentNode.childNodes[7];
+      console.log(arrow);
       if (!Session.get('playerOpen'+targEl.id)) {
         $("#"+targEl.id).animate({
-          backgroundColor: '#44E3E0',
+          backgroundColor: '#247271',
           color: 'white'
         }, 800);
         $(playerContainer).animate({
           height: '400px'
         }, 800)
+        $(nameTitle).animate({
+          backgroundColor: '#247271'
+        }, 800)
         $("#"+topTarg.id).animate({
-          backgroundColor: '#44E3E0',
+          backgroundColor: '#247271',
           color: 'white'
         }, 800)
 
         $("#"+targEl.childNodes[1].id).animate({
            height: '0px'
+         }, 800)
+
+        $("#"+targEl.childNodes[5]).animate({
+           backgroundColor: "#247271"
          }, 800)
 
          setTimeout(function(){
@@ -104,17 +153,18 @@ if (Meteor.isClient) {
           var textChange = target.parentNode.childNodes[5].childNodes[1];
           $(topRow).animate({
             color: 'black',
-            backgroundColor: '#7BAFA0',
+            backgroundColor: '#44E3E0',
           }, 800);
           $(playerContainer).animate({
             height: '0px'
           }, 800)
           $(bottomRow).animate({
             color: 'black',
-            backgroundColor: '#7BAFA0'
+            backgroundColor: '#44E3E0'
           }, 800)
           $("#"+targEl.childNodes[1].id).animate({
-             height: '50px'
+             height: '50px',
+             backgroundColor: '#44E3E0'
            }, 800)
            setTimeout(function(){
               var adder = targEl.childNodes[1];
@@ -197,9 +247,13 @@ if (Meteor.isClient) {
 
       },
       'mouseenter .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
-        console.log(evt.target.childNodes[1]);
-        $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
+        if(Session.get('playerOpen'+evt.target.id)){
+          $("#"+evt.target.id).css('backgroundColor', '#074B46');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#074B46');
+        } else{
+          $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
+        }
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
           color: 'white'
@@ -208,12 +262,10 @@ if (Meteor.isClient) {
 
       },
       'mouseleave .clickBox': function(evt){
-        console.log(evt.target.id);
-        console.log(evt.target.id);
         $('.symbol').css('backgroundColor', 'transparent')
         if(Session.get('playerOpen'+evt.target.id)){
-          $("#"+evt.target.id).css('backgroundColor', '#516E65');
-          $(evt.target.childNodes[1]).css('backgroundColor', '#516E65');
+          $("#"+evt.target.id).css('backgroundColor', '#247271');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#247271');
           var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
             $(openText).css({
             color: 'white'

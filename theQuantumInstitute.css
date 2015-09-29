@@ -17,14 +17,34 @@ body{
 .contact {
   display: inline-block;
   padding-bottom: 10px;
-  background-color: #C0B6E1;
+  background-color: #DA6F7F;
   height: 100%;
   text-align: center;
   opacity: 0.6;
 }
 
-.contact:hover {
+.contact:hover{
   opacity: 1;
+}
+
+.contactContainer{
+
+}
+
+.contactLinks {
+  padding-bottom: 20px;
+}
+
+.contactLinks h4{
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+}
+
+.email {
+  background-color: #C2A09C;
+  margin-top: 80px;
+  border-radius: 10px
 }
 
 .epTitle{
@@ -34,7 +54,19 @@ body{
 .itemInfo{
   background-color: #44E3E0;
   border-radius: 10px 10px 0 0;
+}
 
+.links{
+  background-color: #B4B4B4;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.linkBox {
+  height: 200px;
+  display: inline-block;
+  margin-top: 30px;
 }
 
 .listItem {
@@ -66,15 +98,11 @@ body{
 .seeAll {
   text-align: center;
   display: inline-block;
-  background-color: #C0B6E1;
+  background-color: #DA6F7F;
   padding-bottom: 10px;
   height: 100%;
-  opacity: .6;
-  border-right: 1px solid gray;
-}
-
-.seeAll:hover {
   opacity: 1;
+  border-right: 2px solid gray;
 }
 
 .symbol{
@@ -97,11 +125,64 @@ body{
 }
 
 /*//begin ids*/
+#angel {
+  background-color: #221139;
+  border-radius: 10px;
+}
+
+#angel img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+#angelImage:hover{
+  opacity: .6;
+}
 
 #archive {
   margin-left: 10%;
   font-size: 45px;
   font-style: italic;
+}
+
+#contactDirectly {
+  text-align: center;
+}
+
+#contactDescription {
+  text-align: center;
+}
+
+#linkedin{
+  background-color: #221139;
+  border-radius: 10px;
+}
+
+#linkedin img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+#linkedinImage:hover{
+  opacity: .6
+}
+
+#linksTitle{
+  text-align: center;
+}
+
+#portfolio{
+  background-color: #221139;
+  border-radius: 10px
+}
+
+#portfolio img{
+  width: 100%;
+  border-radius: 10px
+}
+
+#portfolioImage:hover{
+  opacity: 0.6;
 }
 
 #siteTag {
