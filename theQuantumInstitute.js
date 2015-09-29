@@ -28,21 +28,31 @@ if (Meteor.isClient) {
         opacity: 1
       })
     },
-    'mouseenter .contact': function(){
-      $('.contact').css({
+    'mouseenter .seeAll': function(evt){
+      $(evt.target).css({
         opacity: 1
-      });
-      $('.seeAll').css({
-        opacity: .6
-      });
+      })
     },
-    'mouseenter .seeAll': function(){
-      $('.contact').css({
-        opacity: .6
-      });
-      $('.seeAll').css({
+    'mouseleave .seeAll': function(evt){
+      if (Session.get('listingOn')) {
+        console.log('nailed it if the listview is open');
+        $('.seeAll').css('opacity', 1)
+      } else{
+        console.log('contact?');
+        $('.seeAll').css('opacity', 0.6)
+      }
+    },
+    'mouseleave .contact': function(evt){
+      if (!Session.get('listingOn')) {
+        $('.contact').css('opacity', 1)
+      } else{
+        $('.contact').css('opacity', .6)
+      }
+    },
+    'mouseenter .contact': function(evt){
+      $(evt.target).css({
         opacity: 1
-      });
+      })
     }
 
   });

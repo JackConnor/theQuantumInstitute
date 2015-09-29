@@ -23,6 +23,10 @@ body{
   opacity: 0.6;
 }
 
+.contact:hover{
+  opacity: 1;
+}
+
 .contactContainer{
 
 }
@@ -34,11 +38,13 @@ body{
 .contactLinks h4{
   display: inline-block;
   text-align: center;
+  font-size: 24px;
 }
 
 .email {
   background-color: #C2A09C;
-  margin-top: 40px;
+  margin-top: 80px;
+  border-radius: 10px
 }
 
 .epTitle{
@@ -51,8 +57,15 @@ body{
 }
 
 .links{
-  background-color: #C2A09C;
+  background-color: #B4B4B4;
   margin-top: 40px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.linkBox {
+  height: 200px;
+  display: inline-block;
 }
 
 .listItem {
@@ -111,6 +124,17 @@ body{
 }
 
 /*//begin ids*/
+#angel {
+  background-color: #221139;
+}
+
+#angel img{
+  width: 100%;
+}
+
+#angelImage:hover{
+  opacity: .6;
+}
 
 #archive {
   margin-left: 10%;
@@ -126,8 +150,32 @@ body{
   text-align: center;
 }
 
+#linkedin{
+  background-color: #221139;
+}
+
+#linkedin img{
+  width: 100%;
+}
+
+#linkedinImage:hover{
+  opacity: .6
+}
+
 #linksTitle{
   text-align: center;
+}
+
+#portfolio{
+  background-color: #221139;
+}
+
+#portfolio img{
+  width: 100%;
+}
+
+#portfolioImage:hover{
+  opacity: 0.6;
 }
 
 #siteTag {
