@@ -145,7 +145,7 @@ if (Meteor.isClient) {
             console.log(playerId);
             player = new YT.Player(playerId, {
               height: '400',
-              width: '655',
+              width: '100%',
               videoId: vidUrl,
               events: {
                 'onReady': onPlayerReady,
@@ -156,8 +156,9 @@ if (Meteor.isClient) {
           onYouTubeIframeAPIReady();
           // 4. The API will call this function when the video player is ready.
           function onPlayerReady(event) {
-            event.target.playVideo();
-            console.log(event.target);
+            $('.playerContainer').on('click', function(){
+              event.target.playVideo();
+            })
             $('.'+vidUrl).on('click', function(){
               event.target.stopVideo();
             })
