@@ -2,6 +2,7 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('listingOn', true);
   Session.setDefault('playerOpen', false);
+  Session.setDefault('listOn', true);
 
 //begin navbar helpers/events
   Template.navbar.helpers({
@@ -11,9 +12,21 @@ if (Meteor.isClient) {
   Template.navbar.events({
     'click .seeAll': function(){
       Session.set('listingOn', true);
+      $('.seeAll').css({
+        opacity: 1
+      })
+      $('.contact').css({
+        opacity: .68
+      })
     },
     'click .contact': function(){
-      Session.set('listingOn', false)
+      Session.set('listingOn', false);
+      $('.seeAll').css({
+        opacity: .68
+      })
+      $('.contact').css({
+        opacity: 1
+      })
     }
 
   });
@@ -124,7 +137,8 @@ if (Meteor.isClient) {
             backgroundColor: '#44E3E0'
           }, 800)
           $("#"+targEl.childNodes[1].id).animate({
-             height: '50px'
+             height: '50px',
+             backgroundColor: '#44E3E0'
            }, 800)
            setTimeout(function(){
               var adder = targEl.childNodes[1];
@@ -207,8 +221,13 @@ if (Meteor.isClient) {
 
       },
       'mouseenter .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
-        $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
+        if(Session.get('playerOpen'+evt.target.id)){
+          $("#"+evt.target.id).css('backgroundColor', '#074B46');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#074B46');
+        } else{
+          $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
+        }
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
           color: 'white'

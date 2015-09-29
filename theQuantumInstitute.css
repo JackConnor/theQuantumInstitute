@@ -23,8 +23,8 @@ body{
   opacity: 0.75;
 }
 
-.contact:hover {
-  opacity: 1;
+.contact:hover{
+  background-color: #D770AE;
 }
 
 .epTitle{
@@ -69,12 +69,12 @@ body{
   background-color: #DA6F7F;
   padding-bottom: 10px;
   height: 100%;
-  opacity: .75;
+  opacity: 1;
   border-right: 2px solid gray;
 }
 
-.seeAll:hover {
-  opacity: 1;
+.seeAll:hover{
+  background-color: #D770AE;
 }
 
 .symbol{
