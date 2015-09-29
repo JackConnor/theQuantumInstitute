@@ -20,11 +20,7 @@ body{
   background-color: #DA6F7F;
   height: 100%;
   text-align: center;
-  opacity: 0.75;
-}
-
-.contact:hover{
-  background-color: #D770AE;
+  opacity: 0.6;
 }
 
 .epTitle{
@@ -71,10 +67,6 @@ body{
   height: 100%;
   opacity: 1;
   border-right: 2px solid gray;
-}
-
-.seeAll:hover{
-  background-color: #D770AE;
 }
 
 .symbol{

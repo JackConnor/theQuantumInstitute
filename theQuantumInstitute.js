@@ -27,6 +27,22 @@ if (Meteor.isClient) {
       $('.contact').css({
         opacity: 1
       })
+    },
+    'mouseenter .contact': function(){
+      $('.contact').css({
+        opacity: 1
+      });
+      $('.seeAll').css({
+        opacity: .6
+      });
+    },
+    'mouseenter .seeAll': function(){
+      $('.contact').css({
+        opacity: .6
+      });
+      $('.seeAll').css({
+        opacity: 1
+      });
     }
 
   });
