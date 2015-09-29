@@ -1,21 +1,30 @@
 /* CSS declarations go here */
 
+body{
+  background-color: #F5E8F5;
+}
+
 .buttonContainer {
   height: 100%;
 }
 
 .clickBox {
   text-align: center;
-  background-color: #7BAFA0;
-  border-radius: 0 0 20px 20px;
+  background-color: #44E3E0;
+  border-radius: 0 0 10px 10px;
 }
 
 .contact {
   display: inline-block;
   padding-bottom: 10px;
-  background-color: green;
+  background-color: #C0B6E1;
   height: 100%;
   text-align: center;
+  opacity: 0.6;
+}
+
+.contact:hover {
+  opacity: 1;
 }
 
 .epTitle{
@@ -23,8 +32,8 @@
 }
 
 .itemInfo{
-  background-color: #7BAFA0;
-  border-radius: 20px 20px 0 0;
+  background-color: #44E3E0;
+  border-radius: 10px 10px 0 0;
 
 }
 
@@ -35,11 +44,11 @@
 }
 
 .navContainer {
-  outline: 2px solid black;
+  background-color: #7CCDDB;
 }
 
 .open h3 {
-  color: gray;
+  color: black;
   font-weight: normal;
 }
 
@@ -52,20 +61,23 @@
 
 .playerInnerContainer {
   background-color: "red";
-
-
 }
 
 .seeAll {
   text-align: center;
   display: inline-block;
-  background-color: green;
+  background-color: #C0B6E1;
   padding-bottom: 10px;
   height: 100%;
+  opacity: .6;
+  border-right: 1px solid gray;
+}
+
+.seeAll:hover {
+  opacity: 1;
 }
 
 .symbol{
-  width: 100%;
   text-align: center;
   margin-left: 50%;
   margin-top: -100px;
@@ -81,20 +93,27 @@
 }
 
 .titleBox {
-  outline: 2px solid blue;
   margin-bottom: 20px;
 }
 
+/*//begin ids*/
 
-/*//begin elements*/
+#archive {
+  margin-left: 10%;
+  font-size: 45px;
+  font-style: italic;
+}
 
 #siteTag {
   font-size: 22px;
   font-weight: bold;
   margin-top: -10px;
+  margin-left: 35px;
 }
 
 #siteTitle {
-  font-size: 45px;
+  font-size: 60px;
   font-weight: bold;
+  font-style: '#7BAFA0';
+  margin-left: 20px;
 }

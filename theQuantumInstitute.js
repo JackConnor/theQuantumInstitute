@@ -78,14 +78,14 @@ if (Meteor.isClient) {
       var playerContainer = target.parentNode.childNodes[3];
       if (!Session.get('playerOpen'+targEl.id)) {
         $("#"+targEl.id).animate({
-          backgroundColor: '#516E65',
+          backgroundColor: '#44E3E0',
           color: 'white'
         }, 800);
         $(playerContainer).animate({
           height: '400px'
         }, 800)
         $("#"+topTarg.id).animate({
-          backgroundColor: '#516E65',
+          backgroundColor: '#44E3E0',
           color: 'white'
         }, 800)
 
@@ -100,7 +100,8 @@ if (Meteor.isClient) {
         Session.set('playerOpen'+targEl.id, true)
       } else if( Session.get('playerOpen'+targEl.id)){
           var topRow = target.parentNode.childNodes[1];
-          var bottomRow = target.parentNode.childNodes[5]
+          var bottomRow = target.parentNode.childNodes[5];
+          var textChange = target.parentNode.childNodes[5].childNodes[1];
           $(topRow).animate({
             color: 'black',
             backgroundColor: '#7BAFA0',
@@ -196,19 +197,56 @@ if (Meteor.isClient) {
 
       },
       'mouseenter .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#436673');
+        $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
+        console.log(evt.target.childNodes[1]);
+        $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
-        color: 'white'
-      });
+          color: 'white'
+        });
+        $('.symbol').css('backgroundColor', 'transparent')
 
       },
       'mouseleave .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
-        var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
-          $(openText).css({
-          color: 'black'
-        });
+        console.log(evt.target.id);
+        console.log(evt.target.id);
+        $('.symbol').css('backgroundColor', 'transparent')
+        if(Session.get('playerOpen'+evt.target.id)){
+          $("#"+evt.target.id).css('backgroundColor', '#516E65');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#516E65');
+          var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+            $(openText).css({
+            color: 'white'
+          });
+        } else {
+          $("#"+evt.target.id).css('backgroundColor', '#44E3E0');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#44E3E0');
+          var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
+            $(openText).css({
+            color: 'black'
+          });
+        }
+    },
+    'mouseenter .listItem': function(evt){
+      var list = evt.target.childNodes;
+      var top = $(list[1]);
+      var bottom = $(list[5]);
+      bottom.animate({
+        paddingTop: '10px'
+      }, 100);
+      top.animate({
+      }, 100)
+    },
+    'mouseleave .listItem': function(evt){
+      var list = evt.target.childNodes;
+      var top = $(list[1]);
+      var bottom = $(list[5]);
+      bottom.animate({
+        paddingTop: '0px'
+      }, 100)
+      top.animate({
+
+      }, 100)
     }
   })
 

@@ -20,7 +20,7 @@
 <template name="navbar">
   <div class="navContainer container-fluid">
     <div class="row">
-      <div class="titleBox  col-sm-8 col-sm-offset-1 col-xs-12">
+      <div class="titleBox  col-sm-8 col-xs-12">
         <h1 id='siteTitle'>The Quantum Institute</h1>
         <p id='siteTag'>The big bangingest podcast in town</p>
       </div>
@@ -41,15 +41,15 @@
 </template>
 
 <template name="listview">
-  <h1>Episode Archive</h1>
   <div class="itemContainer">
+    <h1 id='archive'>Episode Archive</h1>
     {{#each listItems}}
       <div class="listItem container-fluid">
         <div class="itemInfo row" id={{this.id}}{{this.id}}{{this.id}}{{this.id}}>
-          <div class="col-sm-3 col-xs-12">
+          <div class="col-sm-2 col-xs-12">
             <h2>Episode: {{this.id}}</h2>
           </div>
-          <div class="col-sm-6 col-xs-12">
+          <div class="col-sm-8 col-xs-12">
             <h1 class="epTitle">{{this.name}}</h1>
           </div>
         </div>
