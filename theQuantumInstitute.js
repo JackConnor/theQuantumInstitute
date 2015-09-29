@@ -78,14 +78,14 @@ if (Meteor.isClient) {
       var playerContainer = target.parentNode.childNodes[3];
       if (!Session.get('playerOpen'+targEl.id)) {
         $("#"+targEl.id).animate({
-          backgroundColor: '#516E65',
+          backgroundColor: '#44E3E0',
           color: 'white'
         }, 800);
         $(playerContainer).animate({
           height: '400px'
         }, 800)
         $("#"+topTarg.id).animate({
-          backgroundColor: '#516E65',
+          backgroundColor: '#44E3E0',
           color: 'white'
         }, 800)
 
@@ -197,9 +197,9 @@ if (Meteor.isClient) {
 
       },
       'mouseenter .clickBox': function(evt){
-        $("#"+evt.target.id).css('backgroundColor', '#436673');
+        $("#"+evt.target.id).css('backgroundColor', '#5FCECC');
         console.log(evt.target.childNodes[1]);
-        $(evt.target.childNodes[1]).css('backgroundColor', '#436673');
+        $(evt.target.childNodes[1]).css('backgroundColor', '#5FCECC');
         var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
         $(openText).css({
           color: 'white'
@@ -219,8 +219,8 @@ if (Meteor.isClient) {
             color: 'white'
           });
         } else {
-          $("#"+evt.target.id).css('backgroundColor', '#7BAFA0');
-          $(evt.target.childNodes[1]).css('backgroundColor', '#7BAFA0');
+          $("#"+evt.target.id).css('backgroundColor', '#44E3E0');
+          $(evt.target.childNodes[1]).css('backgroundColor', '#44E3E0');
           var openText = $("#"+evt.target.id)[0].childNodes[1].childNodes[1];
             $(openText).css({
             color: 'black'

@@ -10,7 +10,7 @@ body{
 
 .clickBox {
   text-align: center;
-  background-color: #7BAFA0;
+  background-color: #44E3E0;
   border-radius: 0 0 10px 10px;
 }
 
@@ -32,7 +32,7 @@ body{
 }
 
 .itemInfo{
-  background-color: #7BAFA0;
+  background-color: #44E3E0;
   border-radius: 10px 10px 0 0;
 
 }
@@ -44,8 +44,7 @@ body{
 }
 
 .navContainer {
-  background-color: #D29481;
-;
+  background-color: #7CCDDB;
 }
 
 .open h3 {
@@ -97,8 +96,13 @@ body{
   margin-bottom: 20px;
 }
 
+/*//begin ids*/
 
-/*//begin elements*/
+#archive {
+  margin-left: 10%;
+  font-size: 45px;
+  font-style: italic;
+}
 
 #siteTag {
   font-size: 22px;
